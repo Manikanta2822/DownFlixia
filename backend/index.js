@@ -16,7 +16,9 @@ connectDB(); // Calls the function from db.js
 
 // Routes
 app.use('/api', movieRoutes);
-
+app.get("/", (req, res) => {
+  res.send("🚀 Backend is running successfully!");
+});
 // Start Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
