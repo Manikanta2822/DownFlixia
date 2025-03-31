@@ -46,7 +46,7 @@ const AddMovie = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/add-movie", movie, {
+      await axios.post("https://downflixia.onrender.com/api/add-movie", movie, {
         headers: { "x-admin-key": localStorage.getItem("adminKey") },
       });
       alert("✅ Movie added successfully!");

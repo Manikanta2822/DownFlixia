@@ -10,7 +10,7 @@ const MoviesList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/movies")
+      .get("https://downflixia.onrender.com/api/movies")
       .then((response) => {
         const groupedMovies = response.data.reduce((acc, movie) => {
           acc[movie.category] = acc[movie.category] || [];

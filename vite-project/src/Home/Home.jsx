@@ -8,7 +8,7 @@ const MoviesList = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/movies")
+    axios.get("https://downflixia.onrender.com/api/movies")
       .then(response => {
         const moviesData = response.data;
         setMovies(moviesData);

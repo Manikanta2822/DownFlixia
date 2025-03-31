@@ -12,7 +12,7 @@ const MovieDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/movies/${id}`)
+      .get(`https://downflixia.onrender.com/api/movies/${id}`)
       .then((response) => {
         setMovie(response.data);
         setLoading(false);
@@ -31,7 +31,7 @@ const MovieDetails = () => {
     }
 
     axios
-      .post(`http://localhost:5000/api/rate-movie/${id}`, { rating })
+      .post(`https://downflixia.onrender.com/api/rate-movie/${id}`, { rating })
       .then((response) => {
         setSubmitted(true);
         setMovie((prevMovie) => ({
