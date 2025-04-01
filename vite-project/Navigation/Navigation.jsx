@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Modal, Button, Form } from "react-bootstrap"; // ✅ Import Modal, Button, and Form
+import { Link, useNavigate } from "react-router-dom"; // ✅ Use useNavigate
+import { Modal, Button, Form } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
   const [adminKeyInput, setAdminKeyInput] = useState("");
+  const navigate = useNavigate(); // ✅ Use useNavigate for redirection
 
   const handleAdminAccess = () => {
     setShowModal(true);
@@ -16,9 +17,12 @@ const Navbar = () => {
     if (adminKeyInput.trim() === storedKey.trim()) {
       localStorage.setItem("adminKey", adminKeyInput);
       setShowModal(false);
+      
+      // ✅ Redirect using useNavigate
       setTimeout(() => {
-        window.location.href = "/add-movie"; // Force reload for immediate effect
+        navigate("/add-movie"); 
       }, 100);
+      
     } else {
       alert("❌ Incorrect Admin Key! Access Denied.");
     }
